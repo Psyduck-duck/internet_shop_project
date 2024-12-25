@@ -16,3 +16,11 @@ def show_contacts(request):
         message = request.POST.get('message')
         return HttpResponse(f'Спасибо, {name}! Ваше сообщение принято.')
     return render(request, 'catalog/contacts.html', {'contacts': contacts})
+
+
+def show_product_detail(request, product_id):
+    product = Product.objects.get(id=product_id)
+    context = {
+        'product': product
+    }
+    return render(request, 'catalog/product_detail.html', context)

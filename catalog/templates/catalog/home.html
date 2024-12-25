@@ -3,6 +3,13 @@
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
+
+<div class="container">
+    <div class="row text-center justify-content-center">
+        <h3 class="m-3">Skystore - отличный магазин для каждого!</h3>
+    </div>
+</div>
+
 <div class="container">
     <div class="row text-center justify-content-center">
 
@@ -18,7 +25,7 @@
                     <img src="{{product.image.url}}" class="img-fluid" alt="image"/>
                     {% endif %}
                     <h1 class="card-title pricing-card-title">$ {{product.price}}</h1>
-                    <p>{{product.description}}</p>
+                    <p>{{product.description|truncatechars:100}}</p>
                     <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
                 </div>
             </div>
