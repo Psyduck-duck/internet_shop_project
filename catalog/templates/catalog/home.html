@@ -4,11 +4,7 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row text-center justify-content-center">
-        <h3 class="m-3">Skystore - отличный магазин для каждого!</h3>
-    </div>
-</div>
+{% include 'catalog/header.html' %}
 
 <div class="container">
     <div class="row text-center justify-content-center">
@@ -27,6 +23,7 @@
                     <h1 class="card-title pricing-card-title">$ {{product.price}}</h1>
                     <p>{{product.description|truncatechars:100}}</p>
                     <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
+                    <a href="../../catalog/products/{{ product.id }}/" class="btn btn-lg btn-block btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">Информация</a>
                 </div>
             </div>
         </div>

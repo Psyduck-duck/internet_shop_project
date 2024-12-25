@@ -4,7 +4,7 @@ from .models import Product, Contact
 
 
 def show_home(request):
-    products = Product.objects.order_by('lust_change_date')[:5]
+    products = Product.objects.all()
     return render(request, 'catalog/home.html', {'products': products})
 
 
