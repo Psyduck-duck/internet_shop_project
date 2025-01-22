@@ -4,7 +4,7 @@ from .models import Product, Contact
 
 
 def show_home(request):
-    products = Product.objects.order_by('lust_change_date')[:5]
+    products = Product.objects.all()
     return render(request, 'catalog/home.html', {'products': products})
 
 
@@ -16,3 +16,11 @@ def show_contacts(request):
         message = request.POST.get('message')
         return HttpResponse(f'Спасибо, {name}! Ваше сообщение принято.')
     return render(request, 'catalog/contacts.html', {'contacts': contacts})
+
+
+def show_product_detail(request, product_id):
+    product = Product.objects.get(id=product_id)
+    context = {
+        'product': product
+    }
+    return render(request, 'catalog/product_detail.html', context)
