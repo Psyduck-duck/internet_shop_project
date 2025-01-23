@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class Blog(models.Model):
+    title = models.CharField(max_length=200, verbose_name='заголовок'),
+    content = models.TextField(verbose_name='содержимое'),
+    image = models.ImageField(upload_to='photos/', blank=True, verbose_name='изображение'),
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name='дата создания'),
+    is_published = models.BooleanField(default=False, verbose_name='опубликовано'),
+    views = models.PositiveIntegerField(default=0, verbose_name='просмотры')
