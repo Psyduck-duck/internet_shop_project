@@ -1,0 +1,33 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+
+{% include 'blog/header.html' %}
+
+<div class="container">
+    <div class="row text-center justify-content-center">
+
+        {% for blog in blogs %}
+
+        <div class="col-12 col-sm-6 col-lg-4 ">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{blog.title}}</h4>
+                </div>
+                <div class="card-body">
+                    {% if blog.image %}
+                    <img src="{{blog.image.url}}" class="img-fluid" alt="image"/>
+                    {% endif %}
+                    <p>{{blog.content|truncatechars:100}}</p>
+                    <a href="{% url 'blog:blog_detail' blog.pk %}" class="btn btn-lg btn-block btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">Подробнее</a>
+                    <a href="{% url 'blog:blog_delete' blog.pk %}" class="btn btn-lg btn-block btn-outline-danger" tabindex="-1" role="button" aria-disabled="true">Удалить</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
