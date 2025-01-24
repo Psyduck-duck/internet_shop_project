@@ -8,3 +8,11 @@ class Blog(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, verbose_name='дата создания'),
     is_published = models.BooleanField(default=False, verbose_name='опубликовано'),
     views = models.PositiveIntegerField(default=0, verbose_name='просмотры')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'статья'
+        verbose_name_plural = 'статьи'
+        ordering = ['views']
