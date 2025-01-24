@@ -15,4 +15,4 @@ class Blog(models.Model):
     class Meta:
         verbose_name = 'статья'
         verbose_name_plural = 'статьи'
-        ordering = ['views']
+        ordering = ['date_created']
