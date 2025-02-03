@@ -1,0 +1,35 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+
+{% include 'catalog/header.html' %}
+
+<div class="container">
+    <div class="row text-center justify-content-center">
+
+        <div class="col-5"></div>
+        <a href="{% url 'catalog:create' %}" class="btn btn-primary mb-5 col-2 ">Создать товар</a>
+        <div class="col-5"></div>
+
+        {% for product in products %}
+
+        <div class="container text-start">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">$ {{product.price}}</h6>
+                        <p class="card-text">{{product.description}}</p>
+                        <a href="{% url 'catalog:update' product.pk %}" class="card-link">Изменить</a>
+                        <a href="{% url 'catalog:delete' product.pk %}" class="card-link">Удалить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
