@@ -6,7 +6,7 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = '__all__'
+        fields = ['email', 'phone_number', 'avatar']
 
     def clean_phone_number(self):
         phone_number = self.cleaned_data.get('phone_number')
