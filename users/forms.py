@@ -8,6 +8,13 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ['email', 'phone_number', 'avatar']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({'class': 'form-control'})
+        self.fields['phone_number'].widget.attrs.update({'class': 'form-control'})
+        self.fields['avatar'].widget.attrs.update({'class': 'form-control'})
+        # self.fields['password'].widget.attrs.update({'class': 'form-control'})
+
     def clean_phone_number(self):
         phone_number = self.cleaned_data.get('phone_number')
         if phone_number and not phone_number.isdigit():
@@ -16,4 +23,8 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class CustomAuthenticationForm(AuthenticationForm):
-    pass
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({'class': 'form-control'})
+        self.fields['password'].widget.attrs.update({'class': 'form-control'})

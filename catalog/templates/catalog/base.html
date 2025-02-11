@@ -18,7 +18,7 @@
         {% if user.is_authenticated %}
         <form method="post" action="{% url 'users:logout' %}" style="display: inline">
             {% csrf_token %}
-            <button type="submit" class="p-2 btn btn-outline-primary">Выйти
+            <button type="submit" class="p-2 btn btn-outline-danger">Выйти
             </button>
         </form>
         {% else %}
