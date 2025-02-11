@@ -2,7 +2,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm
 from django.views.generic.edit import CreateView
-from django.views import View
+
 
 
 class CustomLoginView(LoginView):
