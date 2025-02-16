@@ -6,7 +6,7 @@ from .models import Product, Contact
 from django.views.generic import ListView, DetailView, View, CreateView, UpdateView, DeleteView
 from .forms import ProductForm
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 from catalog.models import Product
 
@@ -17,41 +17,46 @@ class ProductHomeListView(ListView):
     context_object_name = 'products'
 
 
-class ProductsListView(ListView):
+class ProductsListView(LoginRequiredMixin, PermissionRequiredMixin ,ListView):
     model = Product
     template_name = 'catalog/products_list.html'
     context_object_name = 'products'
+    permission_required = 'catalog.view_product'
 
 
-class ProductCreateView(LoginRequiredMixin, CreateView):
+class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Product
     template_name = 'catalog/product_form.html'
     form_class = ProductForm
     success_url = reverse_lazy('catalog:list')
     login_url = reverse_lazy('users:login')
+    permission_required = 'catalog.add_product'
 
 
-class ProductUpdateView(LoginRequiredMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Product
     template_name = 'catalog/product_form.html'
     form_class = ProductForm
     success_url = reverse_lazy('catalog:list')
     login_url = reverse_lazy('users:login')
+    permission_required = 'catalog.change_product'
 
 
-class ProductDeleteView(LoginRequiredMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Product
     template_name = 'catalog/product_delete.html'
     success_url = reverse_lazy('catalog:list')
     context_object_name = 'product'
     login_url = reverse_lazy('users:login')
+    permission_required = 'catalog.delete_product'
 
 
-class ProductDetailView(LoginRequiredMixin, DetailView):
+class ProductDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Product
     template_name = 'catalog/product_detail.html'
     context_object_name = 'product'
     login_url = reverse_lazy('users:login')
+    permission_required = 'catalog.view_product'
 
 
 class ContactView(View):

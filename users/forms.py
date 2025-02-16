@@ -11,6 +11,7 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].widget.attrs.update({'class': 'form-control'})
+        # self.fields['username'].widget.attrs.update({'class': 'form-control'})
         self.fields['phone_number'].widget.attrs.update({'class': 'form-control'})
         self.fields['avatar'].widget.attrs.update({'class': 'form-control'})
         # self.fields['password'].widget.attrs.update({'class': 'form-control'})
