@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.http import HttpResponseForbidden
 
 from .models import Product, Contact
 from django.views.generic import ListView, DetailView, View, CreateView, UpdateView, DeleteView
@@ -17,38 +18,43 @@ class ProductHomeListView(ListView):
     context_object_name = 'products'
 
 
-class ProductsListView(LoginRequiredMixin, PermissionRequiredMixin ,ListView):
+class ProductsListView(LoginRequiredMixin, ListView):
     model = Product
     template_name = 'catalog/products_list.html'
     context_object_name = 'products'
-    permission_required = 'catalog.view_product'
+    login_url = reverse_lazy('users:login')
 
 
-class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     template_name = 'catalog/product_form.html'
     form_class = ProductForm
     success_url = reverse_lazy('catalog:list')
     login_url = reverse_lazy('users:login')
-    permission_required = 'catalog.add_product'
 
 
-class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     template_name = 'catalog/product_form.html'
     form_class = ProductForm
     success_url = reverse_lazy('catalog:list')
     login_url = reverse_lazy('users:login')
-    permission_required = 'catalog.change_product'
 
 
-class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     template_name = 'catalog/product_delete.html'
     success_url = reverse_lazy('catalog:list')
     context_object_name = 'product'
     login_url = reverse_lazy('users:login')
-    permission_required = 'catalog.delete_product'
+
+    def post(self, request, product_id):
+        product = get_object_or_404(Product, id=product_id)
+        if request.user.has_perm('catalog.delete_product'):
+            product.delete()
+            return redirect('catalog:list')
+        else:
+            return HttpResponseForbidden('У вас нет прав для удаления продукта')
 
 
 class ProductDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
