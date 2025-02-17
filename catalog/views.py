@@ -31,6 +31,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     form_class = ProductForm
     success_url = reverse_lazy('catalog:list')
     login_url = reverse_lazy('users:login')
+    # permission_required = ['catalog.create_product']
 
 
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
@@ -41,28 +42,48 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('users:login')
 
 
-class ProductDeleteView(LoginRequiredMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Product
     template_name = 'catalog/product_delete.html'
     success_url = reverse_lazy('catalog:list')
     context_object_name = 'product'
     login_url = reverse_lazy('users:login')
+    permission_required = ['catalog.delete_product']
 
-    def post(self, request, product_id):
-        product = get_object_or_404(Product, id=product_id)
-        if request.user.has_perm('catalog.delete_product'):
-            product.delete()
-            return redirect('catalog:list')
-        else:
+    def post(self, request, pk):
+
+        product = get_object_or_404(Product, id=pk)
+        if not request.user.has_perm('catalog.delete_product'):
             return HttpResponseForbidden('У вас нет прав для удаления продукта')
+        product.delete()
+        return redirect('catalog:list')
+
+class UnpublishProductView(LoginRequiredMixin, View):
+    model = Product
+    template_name = 'catalog/product_unpublish_confirm.html'
+    success_url = reverse_lazy('catalog:list')
+    login_url = reverse_lazy('users:login')
+    context_object_name = 'product'
+
+    def post(self, request, pk):
+        product = get_object_or_404(Product, id=pk)
+        if not request.user.has_perm('catalog.can_unpublish_product'):
+            return HttpResponseForbidden('У вас нет прав для снятия / постановки публикации продукта')
+        if product.is_published == False:
+            product.is_published = True
+        else:
+            product.is_published = False
+        product.save()
+        return redirect('catalog:list')
 
 
-class ProductDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+
+class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
     template_name = 'catalog/product_detail.html'
     context_object_name = 'product'
     login_url = reverse_lazy('users:login')
-    permission_required = 'catalog.view_product'
+    # permission_required = 'catalog.view_product'
 
 
 class ContactView(View):
