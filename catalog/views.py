@@ -42,13 +42,13 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('users:login')
 
 
-class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     template_name = 'catalog/product_delete.html'
     success_url = reverse_lazy('catalog:list')
     context_object_name = 'product'
     login_url = reverse_lazy('users:login')
-    permission_required = ['catalog.delete_product']
+    # permission_required = ['catalog.delete_product']
 
     def post(self, request, pk):
 
@@ -58,12 +58,17 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
         product.delete()
         return redirect('catalog:list')
 
+
 class UnpublishProductView(LoginRequiredMixin, View):
     model = Product
     template_name = 'catalog/product_unpublish_confirm.html'
     success_url = reverse_lazy('catalog:list')
     login_url = reverse_lazy('users:login')
     context_object_name = 'product'
+
+    def get(self, request, pk):
+        product = get_object_or_404(Product, id=pk)
+        return render(request, 'catalog/product_unpublish_confirm.html', {'product': product})
 
     def post(self, request, pk):
         product = get_object_or_404(Product, id=pk)
@@ -75,7 +80,6 @@ class UnpublishProductView(LoginRequiredMixin, View):
             product.is_published = False
         product.save()
         return redirect('catalog:list')
-
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):
