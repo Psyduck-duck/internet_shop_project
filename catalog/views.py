@@ -53,7 +53,12 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     def post(self, request, pk):
         product = get_object_or_404(Product, id=pk)
         if request.user.has_perm('catalog.delete_product') or product.owner == request.user:
-            return redirect('catalog:list')
+            form = ProductForm(request.POST)
+            if form.is_valid():
+                # form.owner = request.user
+                # form.save()
+                return redirect('catalog:list')
+
         return HttpResponseForbidden('У вас нет прав для изменения продукта')
 
 
