@@ -33,6 +33,15 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('users:login')
     # permission_required = ['catalog.create_product']
 
+    def post(self, request):
+
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            responce = form.save(commit=False)
+            responce.owner = request.user
+            responce.save()
+            return redirect('catalog:list')
+
 
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
