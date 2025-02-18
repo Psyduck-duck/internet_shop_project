@@ -50,6 +50,12 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('catalog:list')
     login_url = reverse_lazy('users:login')
 
+    def post(self, request, pk):
+        product = get_object_or_404(Product, id=pk)
+        if request.user.has_perm('catalog.delete_product') or product.owner == request.user:
+            return redirect('catalog:list')
+        return HttpResponseForbidden('У вас нет прав для изменения продукта')
+
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
@@ -62,10 +68,10 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
     def post(self, request, pk):
 
         product = get_object_or_404(Product, id=pk)
-        if not request.user.has_perm('catalog.delete_product'):
-            return HttpResponseForbidden('У вас нет прав для удаления продукта')
-        product.delete()
-        return redirect('catalog:list')
+        if request.user.has_perm('catalog.delete_product') or product.owner == request.user:
+            product.delete()
+            return redirect('catalog:list')
+        return HttpResponseForbidden('У вас нет прав для удаления продукта')
 
 
 class UnpublishProductView(LoginRequiredMixin, View):
