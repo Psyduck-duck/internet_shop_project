@@ -23,10 +23,12 @@
                         <h6 class="card-subtitle mb-2 text-body-secondary">$ {{product.price}}</h6>
                         <p class="card-text">{{product.description}}</p>
                         <a href="{% url 'catalog:product_detail' product.pk %}" class="card-link">Подробнее</a>
-                        {% if pems.catalog_update %}
+                        {% if perms.catalog.change_product or user == product.owner %}
                         <a href="{% url 'catalog:update' product.pk %}" class="card-link">Изменить</a>
                         {% endif %}
+                        {% if perms.catalog.delete_product or user == product.owner %}
                         <a href="{% url 'catalog:delete' product.pk %}" class="card-link">Удалить</a>
+                        {% endif %}
                         {% if perms.catalog.can_unpublish_product %}
                         <a href="{% url 'catalog:publish' product.pk %}" class="card-link">{% if not product.is_published %}Опубликовать{% else %}Снять с публикации{% endif %}</a>
                         {% endif %}

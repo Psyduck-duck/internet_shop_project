@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
@@ -50,16 +51,12 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('catalog:list')
     login_url = reverse_lazy('users:login')
 
-    def post(self, request, pk):
-        product = get_object_or_404(Product, id=pk)
-        if request.user.has_perm('catalog.delete_product') or product.owner == request.user:
-            form = ProductForm(request.POST)
-            if form.is_valid():
-                # form.owner = request.user
-                # form.save()
-                return redirect('catalog:list')
+    def get_form_class(self):
+        user = self.request.user
+        if user.has_perm('catalog.update_product') or self.object.owner == user:
+            return ProductForm
 
-        return HttpResponseForbidden('У вас нет прав для изменения продукта')
+        raise PermissionDenied('У вас нет прав для изменения продукта')
 
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
