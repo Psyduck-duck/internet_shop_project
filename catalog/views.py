@@ -1,8 +1,11 @@
 from django.core.exceptions import PermissionDenied
+from django.core.cache import cache
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.http import HttpResponseForbidden
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 
 from .models import Product, Contact
 from django.views.generic import ListView, DetailView, View, CreateView, UpdateView, DeleteView
@@ -24,6 +27,13 @@ class ProductsListView(LoginRequiredMixin, ListView):
     template_name = 'catalog/products_list.html'
     context_object_name = 'products'
     login_url = reverse_lazy('users:login')
+
+    def get_queryset(self):
+        queryset = cache.get('my_queryset')
+        if not queryset:
+            queryset = super().get_queryset()
+            cache.set('my_quaryset', queryset, 60*15)
+        return queryset
 
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
@@ -99,6 +109,7 @@ class UnpublishProductView(LoginRequiredMixin, View):
         return redirect('catalog:list')
 
 
+@method_decorator(cache_page(60*15), name='dispatch')
 class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
     template_name = 'catalog/product_detail.html'
