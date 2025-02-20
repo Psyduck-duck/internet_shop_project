@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import CustomUser
 
 
 class Category(models.Model):
@@ -21,6 +22,8 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products',
                                  verbose_name='название категории')
     price = models.IntegerField(verbose_name='цена')
+    is_published = models.BooleanField(default=False, verbose_name='опубликован')
+    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='products', verbose_name='владелец')
     create_date = models.DateField(auto_now=True, verbose_name='дата создания')
     lust_change_date = models.DateField(auto_now_add=True, verbose_name='дата последнего изменения')
 
@@ -31,6 +34,9 @@ class Product(models.Model):
         verbose_name = 'продукт'
         verbose_name_plural = 'продукты'
         ordering = ['name']
+        permissions = [
+            ('can_unpublish_product', 'Can unpublish product')
+        ]
 
 
 class Contact(models.Model):

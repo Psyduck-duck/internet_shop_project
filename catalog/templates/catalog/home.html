@@ -11,6 +11,8 @@
 
         {% for product in products|slice:":6" %}
 
+        {% if product.is_published %}
+
         <div class="col-12 col-sm-6 col-lg-4 ">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
@@ -27,6 +29,8 @@
                 </div>
             </div>
         </div>
+
+        {% endif %}
 
         {% endfor %}
     </div>
