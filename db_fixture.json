@@ -1,0 +1,686 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2025-02-17T16:37:43.086Z",
+      "user": 4,
+      "content_type": 8,
+      "object_id": "11",
+      "object_repr": "Rick Astley (Группа 1), 1000000 руб.",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\"]}}]"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add категория",
+      "content_type": 7,
+      "codename": "add_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change категория",
+      "content_type": 7,
+      "codename": "change_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete категория",
+      "content_type": 7,
+      "codename": "delete_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view категория",
+      "content_type": 7,
+      "codename": "view_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add продукт",
+      "content_type": 8,
+      "codename": "add_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change продукт",
+      "content_type": 8,
+      "codename": "change_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete продукт",
+      "content_type": 8,
+      "codename": "delete_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view продукт",
+      "content_type": 8,
+      "codename": "view_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add контакт",
+      "content_type": 9,
+      "codename": "add_contact"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change контакт",
+      "content_type": 9,
+      "codename": "change_contact"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete контакт",
+      "content_type": 9,
+      "codename": "delete_contact"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view контакт",
+      "content_type": 9,
+      "codename": "view_contact"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add статья",
+      "content_type": 10,
+      "codename": "add_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change статья",
+      "content_type": 10,
+      "codename": "change_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete статья",
+      "content_type": 10,
+      "codename": "delete_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view статья",
+      "content_type": 10,
+      "codename": "view_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 11,
+      "codename": "add_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 11,
+      "codename": "change_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 11,
+      "codename": "delete_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 11,
+      "codename": "view_customuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can unpublish product",
+      "content_type": 8,
+      "codename": "can_unpublish_product"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "catalog",
+      "model": "category"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "catalog",
+      "model": "product"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "catalog",
+      "model": "contact"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "blog",
+      "model": "blog"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "users",
+      "model": "customuser"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "kfu96hy33i9xbqzdovzo62ocwmbj4zrk",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSHDo8C4dO83EGCmUjU0Ke3K-O_apAvd3nPOfYmYtrXGrfMSJxJnYcXpd8upPLjtgO6p3WZZ5rYuU5a7Ig_a5XUmfl4O9--gpl6_tQKiYCEohwQ-jBkNeMNZFURHThtM2YAak7E0AGEuXjnNg2PFHrUR7w_F8DcZ:1tk47S:JzN8QEJx9DbVcJG-KKNGpzRyBKFR3DgX7pwDhiCMm9U",
+      "expire_date": "2025-03-03T16:37:18.168Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "mqfhxkdadkav21f5o6qsdy1n146lalef",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGllx_MOU9DmDtWvv4gCypTipEHeHSCmgfTPzXiLCtpa4dVrinMVFKHH63RDSg-oO8h3qrcnU6rrMKHdFHrTLqWV6Xg_376BAL98ag3eDM4YNe-TgUuA0qORNRo1e5dEpImTvzsyZFaANoAkNObba21G8P_koOKo:1taDdg:6KV4gNiZ2WYmOyz7DQiwE-NA5TTG0sDEd1ZBxnRewW4",
+      "expire_date": "2025-02-04T12:45:52.333Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "yf8e7glm3rla9zbrsv02dwc5ybbup02c",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGllx_MOU9DmDtWvv4gCypTipEHeHSCmgfTPzXiLCtpa4dVrinMVFKHH63RDSg-oO8h3qrcnU6rrMKHdFHrTLqWV6Xg_376BAL98ag3eDM4YNe-TgUuA0qORNRo1e5dEpImTvzsyZFaANoAkNObba21G8P_koOKo:1tOIZI:f9kCFDsmjpj49KykcZglzNbLm158HHQJveTemkyxbbQ",
+      "expire_date": "2025-01-02T15:36:04.035Z"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Группа 1",
+      "description": "Описание для группы 1"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Группа 2",
+      "description": "Описание для группы 2"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "Till Lindemann",
+      "description": "Test",
+      "image": "photos/Till_Lindemann_QedjFVV.jpeg",
+      "category": 4,
+      "price": 2000000,
+      "is_published": false,
+      "owner": 3,
+      "create_date": "2025-02-11",
+      "lust_change_date": "2024-12-19"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "name": "Marshall Bruce Mathers III",
+      "description": "Obie Trice, real name, no gimmicks\r\nRa—\r\nTwo trailer-park girls go round the outside\r\nRound the outside, round the outside\r\nTwo trailer-park girls go round the outside\r\nRound the outside, round the outside\r\nWoo (Ooh, ooh)\r\n\r\n[Refrain: Eminem]\r\nGuess who's back, back again?\r\nShady's back, tell a friend\r\nGuess who's back, guess who's back\r\nGuess who's back, guess who's back\r\nGuess who's back, guess who's back\r\nGuess who's back\r\n(Na-na-na, na, na, na, na, na, na)\r\n(Na-na-na, na, na, na, na)\r\n\r\n[Verse 1: Eminem]\r\nI've created a monster\r\n'Cause nobody wants to see Marshall no more, they want Shady, I'm chopped liver\r\nWell, if you want Shady, this is what I'll give ya\r\nA little bit of weed mixed with some hard liquor\r\nSome vodka that'll jump-start my heart quicker\r\nThan a shock when I get shocked at the hospital\r\nBy the doctor when I'm not cooperating\r\nWhen I'm rockin' the table while he's operating (Hey)\r\nYou waited this long, now stop debating\r\n'Cause I'm back, I'm on the rag and ovulating\r\nI know that you got a job, Ms. Cheney\r\nBut your husband's heart problem's complicating\r\nSo the FCC won't let me be\r\nOr let me be me, so let me see\r\nThey tried to shut me down on MTV\r\nBut it feels so empty without me\r\nSo come on and dip, bum on your lips\r\nFuck that, cum on your lips and some on your tits\r\nAnd get ready, 'cause this shit's about to get heavy\r\nI just settled all my lawsuits (Fuck you, Debbie)\r\nSee upcoming rap shows\r\nGet tickets for your favorite artists\r\nYou might also like\r\neuphoria\r\nKendrick Lamar\r\nSo Long, London\r\nTaylor Swift\r\nHabits\r\nEminem & White Gold\r\n[Chorus: Eminem]\r\nNow, this looks like a job for me\r\nSo everybody, just follow me\r\n'Cause we need a little controversy\r\n'Cause it feels so empty without me\r\nI said this looks like a job for me\r\nSo everybody, just follow me\r\n'Cause we need a little controversy\r\n'Cause it feels so empty without me\r\n\r\n[Verse 2: Eminem]\r\nLittle hellions, kids feeling rebellious\r\nEmbarrassed, their parents still listen to Elvis\r\nThey start feelin' like prisoners, helpless\r\n'Til someone comes along on a mission and yells, \"Bitch\"\r\nA visionary, vision is scary\r\nCould start a revolution, pollutin' the airwaves\r\nA rebel, so just let me revel and bask\r\nIn the fact that I got everyone kissin' my ass\r\nAnd it's a disaster, such a catastrophe\r\nFor you to see so damn much of my ass, you asked for me?\r\nWell, I'm back, da-na-na-na, na-na-na-na-na-na\r\nFix your bent antenna, tune it in, and then I'm gonna\r\nEnter in and up under your skin like a splinter\r\nThe center of attention, back for the winter\r\nI'm interesting, the best thing since wrestling\r\nInfesting in your kid's ears and nesting\r\nTesting, \"Attention, please\"\r\nFeel the tension soon as someone mentions me\r\nHere's my ten cents, my two cents is free\r\nA nuisance, who sent? You sent for me?",
+      "image": "photos/Eminem.jpeg",
+      "category": 3,
+      "price": 3000000,
+      "is_published": false,
+      "owner": 3,
+      "create_date": "2024-12-25",
+      "lust_change_date": "2024-12-19"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+      "name": "John Winston Ono Lennon",
+      "description": "Yesterday\r\nAll my troubles seemed so far away,\r\nNow it looks as though they’re here to stay.\r\nOh, I believe in yesterday.\r\n\r\nSuddenly\r\nI’m not half the man I used to be,\r\nThere’s a shadow hanging over me.\r\nOh, yesterday came suddenly.\r\n\r\nWhy she\r\nHad to go, I don’t know, she wouldn’t say.\r\nI said\r\nSomething wrong, now I long for yesterday.\r\n\r\nYesterday\r\nLove was such an easy game to play.\r\nNow I need a place to hide away.\r\nOh, I believe in yesterday.\r\n\r\nWhy she\r\nHad to go, I don’t know, she wouldn’t say.\r\nI said\r\nSomething wrong, now I long for yesterday.\r\n\r\nYesterday\r\nLove was such an easy game to play.\r\nNow I need a place to hide away.\r\nOh, I believe in yesterday.",
+      "image": "photos/Lenon.jpeg",
+      "category": 4,
+      "price": 10000000,
+      "is_published": false,
+      "owner": 3,
+      "create_date": "2024-12-25",
+      "lust_change_date": "2024-12-19"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "name": "Владимир Высоцкий",
+      "description": "Если друг оказался вдруг\r\nИ не друг и не враг, а – так..\r\nЕсли сразу не разберёшь,\r\nПлох он или хорош,\r\nПарня в горы тяни – рискни,\r\nНе бросай одного его.\r\nПусть он в связке с тобой в одной,\r\nТам поймешь, кто такой.\r\n\r\nЕсли парень в горах – не ах,\r\nЕсли сразу раскис – и вниз,\r\nШаг ступил на ледник – и сник,\r\nОступился – и в крик.\r\nЗначит, рядом с тобой чужой,\r\nТы его не брани – гони:\r\nВверх таких не берут и тут\r\nПро таких не поют.\r\n\r\nЕсли ж он не скулил, не ныл,\r\nПусть он хмур был и зол, но шёл,\r\nА когда ты упал со скал,\r\nОн стонал, но держал.\r\nЕсли шёл за тобой, как в бой,\r\nНа вершине стоял, хмельной,\r\nЗначит – как на себя самого,\r\nПоложись на него.",
+      "image": "photos/vysockiy.jpeg",
+      "category": 4,
+      "price": 20000000,
+      "is_published": false,
+      "owner": 3,
+      "create_date": "2024-12-25",
+      "lust_change_date": "2024-12-20"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 10,
+    "fields": {
+      "name": "Robert Nesta Marley",
+      "description": "Don't worry about a thing\r\n'Cause every little thing\r\nGonna be all right\r\n\r\nSinging: Don't worry about a thing\r\n'Cause every little thing\r\nGonna be all right\r\n\r\nRise up this morning\r\nSmiled with the rising Sun\r\nThree little birds\r\nPitched by my doorstep\r\nSinging sweet songs\r\nOf melodies pure and true\r\nSaying: This is my message to you\r\n\r\nSinging: Don't worry about a thing\r\n'Cause every little thing\r\nGonna be all right\r\n\r\nSinging: Don't worry about a thing\r\n'Cause every little thing\r\nGonna be all right\r\n\r\nRise up this morning\r\nSmiled with the rising Sun\r\nThree little birds\r\nIt's by my doorstep\r\nSinging sweet songs\r\nOf melodies pure and true\r\nSaying: This is my message to you\r\n\r\nSinging: Don't worry about a thing\r\n(Worry about a thing)\r\nEvery little thing gonna be all right\r\n(Don't worry!)\r\n\r\nSinging: Don't worry about a thing\r\n(I won't worry!)\r\n'Cause every little thing\r\nGonna be all right\r\n\r\nDon't worry about a thing\r\n'Cause every little thing\r\nGonna be all right\r\n(I won't worry!)\r\n\r\nSinging: Don't worry about a thing\r\n'Cause every little thing\r\nGonna be all right\r\n\r\nSinging: Don't worry about a thing\r\n'Cause every little thing\r\nGonna be all right!",
+      "image": "photos/marley-3.jpeg",
+      "category": 3,
+      "price": 1234567,
+      "is_published": false,
+      "owner": 3,
+      "create_date": "2024-12-25",
+      "lust_change_date": "2024-12-20"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 11,
+    "fields": {
+      "name": "Rick Astley",
+      "description": "We're no strangers to love\r\nYou know the rules and so do I\r\nA full commitment's what I'm thinkin' of\r\nYou wouldn't get this from any other guy\r\nI just wanna tell you how I'm feeling\r\nGotta make you understand\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nWe've known each other for so long\r\nYour heart's been aching, but you're too shy to say it\r\nInside, we both know what's been going on\r\nWe know the game and we're gonna play it\r\nAnd if you ask me how I'm feeling\r\nDon't tell me you're too blind to see\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nWe've known each other for so long\r\nYour heart's been aching, but you're too shy to say it\r\nInside, we both know what's been going on\r\nWe know the game and we're gonna play it\r\nI just wanna tell you how I'm feeling\r\nGotta make you understand\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you",
+      "image": "photos/Rick_Astley_znbz741.jpeg",
+      "category": 3,
+      "price": 1000000,
+      "is_published": true,
+      "owner": 3,
+      "create_date": "2025-02-17",
+      "lust_change_date": "2024-12-25"
+    }
+  },
+  {
+    "model": "catalog.contact",
+    "pk": 1,
+    "fields": {
+      "name": "Техподдержка",
+      "phone_number": "+7-777-777-7777",
+      "email": "test@email.ru"
+    }
+  },
+  {
+    "model": "catalog.contact",
+    "pk": 2,
+    "fields": {
+      "name": "Партнерский отдел",
+      "phone_number": "+7-888-888-8888",
+      "email": "money@mail.ru"
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 1,
+    "fields": {
+      "title": "test",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices nisi in consequat convallis. Suspendisse ut velit faucibus, suscipit turpis non, volutpat ex. Aenean odio eros, molestie nec cursus quis, porta a ante. Vestibulum tempor malesuada fermentum. Nam rhoncus sagittis lectus, non interdum ligula egestas at. Quisque vel vehicula nisl. Sed efficitur condimentum bibendum. Morbi lacinia massa a ex tristique, vel luctus diam hendrerit. Vestibulum finibus justo ex, nec tincidunt nulla pulvinar non. Mauris dictum risus urna, eu interdum nisi sollicitudin non. Nullam id justo justo. Integer volutpat urna at orci consequat volutpat. Integer posuere ante vel dignissim egestas.",
+      "image": "photos/Till_Lindemann_ITnNAU8.jpeg",
+      "date_created": "2025-01-24T08:55:38.696Z",
+      "is_published": true,
+      "views": 10
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 3,
+    "fields": {
+      "title": "ИИ захватил мир",
+      "content": "ИИ захватил мир, но так и не смог зарендерить карьтинку человека с нормальными руками",
+      "image": "",
+      "date_created": "2025-01-24T11:37:56.259Z",
+      "is_published": true,
+      "views": 8
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$sstXaZNZT9fUb7F0xpg11P$J0UiCHVn/wxBIAEuLllGge6uy5jL9lKxU8Ebv7ZiK+k=",
+      "last_login": "2025-02-17T16:36:49.414Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-02-15T15:55:12.225Z",
+      "email": "antonfomenko123@gmail.com",
+      "username": "",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.customuser",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$PJtxS3KUp9LHb2HdzzB07y$N3/dwtv4srGRSoKCSfCj6XwDXwjXv6RuBCSK4ap/Lu4=",
+      "last_login": "2025-02-17T16:37:18.164Z",
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-02-17T15:52:36.282Z",
+      "email": "boss@mail.ru",
+      "username": "boss",
+      "phone_number": null,
+      "country": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

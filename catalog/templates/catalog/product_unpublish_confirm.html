@@ -1,0 +1,27 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Форма публикации{% endblock %}
+
+{% block content %}
+
+<div class='container'>
+    <h1>{% if product.is_published%}Снять с публикации{% else %}Опубликовать{% endif %}</h1>
+    {% if product.is_published%}
+    <p>Вы уверены, что хотите  снять с публикации товар {{ product }}?</p>
+    {% else %}
+    <p>Вы уверены, что хотите опубликовать товар {{ product }}?</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if product.is_published%}
+        <button type="submit" class="btn btn-danger">Снять</button>
+        {% else %}
+        <button type="submit" class="btn btn-primary">Опубликовать</button>
+        {% endif %}
+        <a href="{% url 'catalog:list' %}" class="btn btn-secondary">Отмена</a>
+    </form>
+
+</div>
+
+{% endblock %}

@@ -25,7 +25,7 @@ class RegisterView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        self.send_welcome_email(user.email)
+        # self.send_welcome_email(user.email)
         return super().form_valid(form)
 
     def send_welcome_email(self, user_email):

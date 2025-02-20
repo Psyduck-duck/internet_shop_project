@@ -1,21 +1,5 @@
 [
   {
-    "model": "catalog.category",
-    "pk": 3,
-    "fields": {
-      "name": "Группа 1",
-      "description": "Описание для группы 1"
-    }
-  },
-  {
-    "model": "catalog.category",
-    "pk": 4,
-    "fields": {
-      "name": "Группа 2",
-      "description": "Описание для группы 2"
-    }
-  },
-  {
     "model": "catalog.product",
     "pk": 6,
     "fields": {
@@ -103,24 +87,6 @@
       "owner": 3,
       "create_date": "2025-02-17",
       "lust_change_date": "2024-12-25"
-    }
-  },
-  {
-    "model": "catalog.contact",
-    "pk": 1,
-    "fields": {
-      "name": "Техподдержка",
-      "phone_number": "+7-777-777-7777",
-      "email": "test@email.ru"
-    }
-  },
-  {
-    "model": "catalog.contact",
-    "pk": 2,
-    "fields": {
-      "name": "Партнерский отдел",
-      "phone_number": "+7-888-888-8888",
-      "email": "money@mail.ru"
     }
   }
 ]

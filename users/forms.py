@@ -6,11 +6,12 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ['email', 'phone_number', 'avatar']
+        fields = ['email', 'username', 'phone_number', 'avatar']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].widget.attrs.update({'class': 'form-control'})
+        self.fields['username'].widget.attrs.update({'class': 'form-control'})
         self.fields['phone_number'].widget.attrs.update({'class': 'form-control'})
         self.fields['avatar'].widget.attrs.update({'class': 'form-control'})
         # self.fields['password'].widget.attrs.update({'class': 'form-control'})
