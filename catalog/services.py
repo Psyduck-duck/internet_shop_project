@@ -4,10 +4,10 @@ from .models import Product
 class ProductService:
 
     @staticmethod
-    def get_only_group_products(group_id):
+    def get_only_category_products(category_id):
         """ метод для получения продуктов определенной категории """
 
-        group_products = Product.objects.filter(group_id=group_id)
-        if not group_products.exists():
+        category_products = Product.objects.filter(category_id=category_id)
+        if not category_products.exists():
             return None
-        return group_products
+        return category_products

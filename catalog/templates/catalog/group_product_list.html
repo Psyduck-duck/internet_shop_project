@@ -1,0 +1,48 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Список товаров категории: "{{ category }}"{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">{{ category }}</h1>
+        <p class="lead">{{category.description}}</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row text-center justify-content-center">
+
+        <div class="col-5"></div>
+        <a href="{% url 'catalog:list' %}" class="btn btn-primary mb-5 col-2 ">Сбросить поиск</a>
+        <div class="col-5"></div>
+
+        {% for product in products %}
+
+        <div class="container text-start">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">$ {{product.price}}</h6>
+                        <p class="card-text">{{product.description}}</p>
+                        <a href="{% url 'catalog:product_detail' product.pk %}" class="card-link">Подробнее</a>
+                        {% if perms.catalog.change_product or user == product.owner %}
+                        <a href="{% url 'catalog:update' product.pk %}" class="card-link">Изменить</a>
+                        {% endif %}
+                        {% if perms.catalog.delete_product or user == product.owner %}
+                        <a href="{% url 'catalog:delete' product.pk %}" class="card-link">Удалить</a>
+                        {% endif %}
+                        {% if perms.catalog.can_unpublish_product %}
+                        <a href="{% url 'catalog:publish' product.pk %}" class="card-link">{% if not product.is_published %}Опубликовать{% else %}Снять с публикации{% endif %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

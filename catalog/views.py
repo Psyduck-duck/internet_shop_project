@@ -7,9 +7,10 @@ from django.http import HttpResponseForbidden
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
 
-from .models import Product, Contact
+from .models import Product, Contact, Category
 from django.views.generic import ListView, DetailView, View, CreateView, UpdateView, DeleteView
 from .forms import ProductForm
+from .services import ProductService
 
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
@@ -116,6 +117,19 @@ class ProductDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'product'
     login_url = reverse_lazy('users:login')
     # permission_required = 'catalog.view_product'
+
+
+class CategoryProductsListView(DeleteView):
+    model = Category
+    template_name = 'catalog/group_product_list.html'
+    context_object_name = 'category'
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        group_id = self.object.id
+        context['products'] = ProductService.get_only_category_products(group_id)
+        return context
 
 
 class ContactView(View):
