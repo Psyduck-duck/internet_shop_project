@@ -36,6 +36,12 @@ class ProductsListView(LoginRequiredMixin, ListView):
             cache.set('my_quaryset', queryset, 60*15)
         return queryset
 
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
