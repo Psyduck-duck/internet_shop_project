@@ -1,28 +1,21 @@
 {% extends 'catalog/base.html' %}
 
-{% block title %}Список товаров{% endblock %}
+{% block title %}Список товаров категории: "{{ category }}"{% endblock %}
 
 {% block content %}
 
-{% include 'catalog/header.html' %}
+<div class="container">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">{{ category }}</h1>
+        <p class="lead">{{category.description}}</p>
+    </div>
+</div>
 
 <div class="container">
     <div class="row text-center justify-content-center">
 
-        <div class="container m-1">
-            <a href="{% url 'catalog:create' %}" class="btn btn-primary mb-3 col-2 ">Создать товар</a>
-        </div>
-        <div class="dropdown m-1">
-            <button class="btn btn-secondary dropdown-toggle mb-3" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                Выберите категорию
-            </button>
-            <ul class="dropdown-menu">
-                {% for category in categories %}
-                <li><a class="dropdown-item" href="{% url 'catalog:category_products' category.pk%}">{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
+        <div class="col-5"></div>
+        <a href="{% url 'catalog:list' %}" class="btn btn-primary mb-5 col-2 ">Сбросить поиск</a>
         <div class="col-5"></div>
 
         {% for product in products %}
